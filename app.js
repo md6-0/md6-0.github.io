@@ -154,7 +154,7 @@ function tarjeta(repo) {
       "p",
       { class: "acciones" },
       r.demo && el("a", { class: "boton boton-pequeno", href: r.demo }, "Abrir la app"),
-      el("a", { class: "enlace", href: r.url }, "Código"),
+      el("a", { class: "boton boton-pequeno boton-secundario", href: r.url }, "Código"),
     ),
   );
 }

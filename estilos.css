@@ -130,6 +130,16 @@ a {
   background: var(--verde-hover);
 }
 
+.boton-secundario {
+  background: transparent;
+  border: 1px solid rgb(255 255 255 / 0.3);
+}
+
+.boton-secundario:hover {
+  background: rgb(119 158 210 / 0.12);
+  border-color: var(--azul);
+}
+
 .boton-pequeno {
   min-height: 2.1rem;
   padding: 0 0.9rem;
@@ -145,7 +155,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 1.25rem;
+  gap: 0.6rem;
 }
 
 /* --- Destacados ---------------------------------------------------------------------- */
