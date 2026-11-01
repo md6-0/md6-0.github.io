@@ -108,10 +108,10 @@ a {
   text-transform: uppercase;
 }
 
-.antetitulo::before {
-  content: "";
-  width: 2.5rem;
-  border-top: 2px dashed currentColor;
+/* Guiones de texto, como en la portada original de GeoData.gl. aria-hidden para que
+   el lector de pantalla no lea «guion guion guion…» */
+.guiones {
+  letter-spacing: 1px;
 }
 
 .boton {
