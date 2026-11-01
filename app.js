@@ -12,13 +12,12 @@ const CONTACTO = [
   { texto: "LinkedIn", url: "https://www.linkedin.com/in/mario-diaz-dev/" },
 ];
 
-// Repos que no se listan: este mismo sitio, el README del perfil y el destacado (ya está arriba).
-const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl"].map((n) => n.toLowerCase()));
+// Repos que no se listan: este mismo sitio, el README del perfil y los destacados (ya están arriba).
+const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "videogames-backlog-app"].map((n) => n.toLowerCase()));
 
 // Orden en la página: primero estos, en este orden; el resto (también los repos
 // nuevos) va detrás, del más reciente al más antiguo.
 const ORDEN = [
-  "videogames-backlog-app",
   "The-endless-deck",
   "hackathon2019-nonstap",
   "Aparcapp",

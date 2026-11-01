@@ -148,7 +148,21 @@ a {
   gap: 0.5rem 1.25rem;
 }
 
-/* --- Destacado ---------------------------------------------------------------------- */
+/* --- Destacados ---------------------------------------------------------------------- */
+.destacado + .destacado {
+  margin-top: 1.5rem;
+}
+
+/* El segundo, con la imagen a la derecha, para que no se vean iguales */
+.destacado-invertido .destacado-imagen {
+  order: 2;
+}
+
+/* La captura de la app es más ancha que el hueco: que se lea la columna de la izquierda entera */
+.destacado-invertido .destacado-imagen img {
+  object-position: 0% 50%;
+}
+
 .destacado {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
@@ -357,6 +371,10 @@ a {
 
 /* --- Móvil ------------------------------------------------------------------------- */
 @media (max-width: 760px) {
+  .destacado-invertido .destacado-imagen {
+    order: 0;
+  }
+
   .destacado {
     grid-template-columns: 1fr;
     border-radius: 22px;

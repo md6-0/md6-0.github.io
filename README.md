@@ -6,6 +6,9 @@ Muestra un proyecto destacado y la lista de todos mis repositorios públicos, qu
 
 ## Cambiar cosas
 
+Los proyectos destacados (GeoData.gl y Mi biblioteca de videojuegos) están escritos a mano en `index.html`, con sus capturas en `img/`.
+
+
 Todo lo configurable está al principio de `app.js`:
 
 - `CONTACTO`: enlaces de la cabecera.
