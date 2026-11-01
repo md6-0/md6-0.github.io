@@ -2,7 +2,7 @@
 
 Mi página personal: https://md6-0.github.io/
 
-Muestra un proyecto destacado y la lista de todos mis repositorios públicos, que se lee de la API de GitHub al abrir la página. Si creo un repo público nuevo, aparece solo. Los que tienen GitHub Pages llevan un botón «Demo».
+Muestra dos proyectos destacados y, en una columna aparte, la lista de todos mis repositorios públicos, que se lee de la API de GitHub al abrir la página. Si creo un repo público nuevo, aparece solo. Los que tienen GitHub Pages llevan un botón «Abrir la app».
 
 ## Cambiar cosas
 
