@@ -9,6 +9,7 @@ Muestra un proyecto destacado y la lista de todos mis repositorios públicos, qu
 Todo lo configurable está al principio de `app.js`:
 
 - `CONTACTO`: enlaces de la cabecera.
+- `ORDEN`: qué proyectos van primero. Los demás, incluidos los repos nuevos, van detrás por fecha.
 - `OCULTOS`: repos que no quiero que salgan en la lista.
 - `NOMBRES` y `DESCRIPCIONES`: nombre y descripción que se muestran de cada repo. Tienen prioridad sobre los de GitHub.
 

@@ -15,6 +15,18 @@ const CONTACTO = [
 // Repos que no se listan: este mismo sitio, el README del perfil y el destacado (ya está arriba).
 const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl"].map((n) => n.toLowerCase()));
 
+// Orden en la página: primero estos, en este orden; el resto (también los repos
+// nuevos) va detrás, del más reciente al más antiguo.
+const ORDEN = [
+  "videogames-backlog-app",
+  "The-endless-deck",
+  "hackathon2019-nonstap",
+  "Aparcapp",
+  "union-sistemas",
+  "TFWStudiosWeb",
+  "Prueba-tecnica-maquetacion-frontend",
+];
+
 // Nombre y descripción que se muestran en la página. Tienen prioridad sobre los de
 // GitHub; un repo que no esté aquí se muestra con su nombre y su descripción de GitHub.
 const NOMBRES = {
@@ -149,8 +161,18 @@ function tarjeta(repo) {
 let todos = [];
 let filtro = null;
 
+function posicion(repo) {
+  const i = ORDEN.findIndex((n) => n.toLowerCase() === repo.nombre.toLowerCase());
+  return i === -1 ? ORDEN.length : i;
+}
+
+function ordenar(repos) {
+  // Array.sort es estable: los que no están en ORDEN conservan el orden por fecha de la API.
+  return [...repos].sort((a, b) => posicion(a) - posicion(b));
+}
+
 function pintarRepos() {
-  const visibles = filtro ? todos.filter((r) => r.lenguaje === filtro) : todos;
+  const visibles = ordenar(filtro ? todos.filter((r) => r.lenguaje === filtro) : todos);
   $("repos").replaceChildren(...visibles.map(tarjeta));
   $("estado").textContent = `${visibles.length} ${visibles.length === 1 ? "proyecto" : "proyectos"}${filtro ? ` en ${filtro}` : ""}`;
 }
