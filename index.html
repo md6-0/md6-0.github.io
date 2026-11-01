@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario Díaz · Proyectos</title>
+  <meta name="description" content="Mario Díaz, ingeniero multimedia. Proyectos de desarrollo web, mapas y videojuegos.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./fuentes/Barlow-BoldItalic.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./estilos.css">
+  <script type="module" src="./app.js"></script>
+</head>
+
+<body>
+  <header class="cabecera">
+    <div class="contenedor">
+      <h1>Mario Díaz</h1>
+      <p class="rol">Ingeniero multimedia.</p>
+      <nav aria-label="Contacto">
+        <ul class="contacto" id="contacto"></ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section aria-labelledby="titulo-destacado">
+      <h2 id="titulo-destacado" class="antetitulo">Proyecto destacado</h2>
+      <article class="destacado">
+        <a class="destacado-imagen" href="https://md6-0.github.io/TFG-GeoData.gl/" tabindex="-1" aria-hidden="true">
+          <img src="./img/geodata.jpg" width="1200" height="457" alt="">
+        </a>
+        <div class="destacado-texto">
+          <h3>GeoData.gl</h3>
+          <p>Web app para representar en un mapa datos geolocalizados desde archivos CSV, JSON o GeoJSON, con capas
+            2D y 3D: puntos, mapas de calor, hexágonos y arcos. Funciona entera en el navegador.</p>
+          <p class="nota">Mi Trabajo de Fin de Grado en Ingeniería Multimedia (Universidad de Alicante), puesto al día
+            en 2026 con Vite, MapLibre y deck.gl 9.</p>
+          <ul class="etiquetas" aria-label="Tecnologías">
+            <li>JavaScript</li>
+            <li>deck.gl</li>
+            <li>MapLibre</li>
+            <li>WebGL</li>
+            <li>Vite</li>
+          </ul>
+          <p class="acciones">
+            <a class="boton" href="https://md6-0.github.io/TFG-GeoData.gl/">Ver la demo</a>
+            <a class="enlace" href="https://github.com/md6-0/TFG-GeoData.gl">Código</a>
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="titulo-proyectos" class="proyectos">
+      <div class="proyectos-cabecera">
+        <h2 id="titulo-proyectos" class="antetitulo">Todos los proyectos</h2>
+        <div class="filtros" id="filtros" role="group" aria-label="Filtrar por lenguaje"></div>
+      </div>
+      <p class="estado" id="estado" role="status">Cargando los repositorios de GitHub…</p>
+      <ul class="rejilla" id="repos"></ul>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Los proyectos se leen de mis repositorios públicos de GitHub cada vez que abres la página.</p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="contenedor">Para ver la lista de proyectos hace falta JavaScript. Puedes verlos en
+      <a href="https://github.com/md6-0?tab=repositories">mi perfil de GitHub</a>.</p>
+  </noscript>
+</body>
+
+</html>
