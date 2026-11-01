@@ -369,6 +369,70 @@ a {
   font-size: 0.92rem;
 }
 
+/* --- Dos columnas en pantallas anchas ---------------------------------------------------
+   Izquierda: presentación y destacados (desplazamiento normal de la página).
+   Derecha: el resto de proyectos, fija a la altura de la ventana y con su propio scroll. */
+@media (min-width: 1100px) {
+  .pagina {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(24rem, 32vw, 38rem);
+    align-items: start;
+  }
+
+  /* Sin ancho máximo: la columna aprovecha todo el espacio que deja la de proyectos */
+  .principal .contenedor {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0 clamp(2rem, 3vw, 3.5rem);
+  }
+
+  .lateral {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 2rem clamp(1.25rem, 2vw, 2rem);
+    background: rgb(0 0 0 / 0.18);
+    border-left: 1px solid var(--borde);
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.2) transparent;
+  }
+
+  .lateral .proyectos {
+    margin-top: 0;
+  }
+
+  /* En la columna estrecha, el título arriba y los filtros debajo */
+  .lateral .proyectos-cabecera {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .lateral .antetitulo {
+    margin-bottom: 0.9rem;
+  }
+
+  .lateral .rejilla {
+    grid-template-columns: 1fr;
+  }
+
+  .lateral .tarjeta {
+    padding: 1.1rem 1.2rem;
+  }
+
+  .lateral .tarjeta:hover {
+    transform: none;
+  }
+
+  .pie {
+    margin-top: 3rem;
+  }
+}
+
 /* --- Móvil ------------------------------------------------------------------------- */
 @media (max-width: 760px) {
   .destacado-invertido .destacado-imagen {
