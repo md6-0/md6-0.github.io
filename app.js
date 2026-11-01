@@ -70,7 +70,9 @@ const COLORES = {
   Swift: "#F05138",
 };
 
-const CACHE = "repos-md6-0";
+// Se guarda la lista sin filtrar: OCULTOS, ORDEN, NOMBRES y DESCRIPCIONES se aplican al
+// pintar, así un cambio en ellos se ve al momento aunque haya una lista guardada.
+const CACHE = "repos-md6-0-v2";
 const CACHE_MINUTOS = 30;
 
 // --- Utilidades ------------------------------------------------------------------
@@ -111,7 +113,7 @@ async function leerRepos() {
     throw error;
   }
   const repos = (await respuesta.json())
-    .filter((r) => !r.fork && !r.archived && !OCULTOS.has(r.name.toLowerCase()))
+    .filter((r) => !r.fork && !r.archived)
     .map((r) => ({
       nombre: r.name,
       descripcion: r.description,
@@ -170,14 +172,17 @@ function ordenar(repos) {
   return [...repos].sort((a, b) => posicion(a) - posicion(b));
 }
 
+const visible = (r) => !OCULTOS.has(r.nombre.toLowerCase());
+
 function pintarRepos() {
-  const visibles = ordenar(filtro ? todos.filter((r) => r.lenguaje === filtro) : todos);
+  const lista = todos.filter(visible);
+  const visibles = ordenar(filtro ? lista.filter((r) => r.lenguaje === filtro) : lista);
   $("repos").replaceChildren(...visibles.map(tarjeta));
   $("estado").textContent = `${visibles.length} ${visibles.length === 1 ? "proyecto" : "proyectos"}${filtro ? ` en ${filtro}` : ""}`;
 }
 
 function pintarFiltros() {
-  const lenguajes = [...new Set(todos.map((r) => r.lenguaje).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  const lenguajes = [...new Set(todos.filter(visible).map((r) => r.lenguaje).filter(Boolean))].sort((a, b) => a.localeCompare(b));
   if (lenguajes.length < 2) return;
   const boton = (texto, valor) =>
     el(
@@ -197,8 +202,31 @@ function pintarFiltros() {
   $("filtros").replaceChildren(boton("Todos", null), ...lenguajes.map((l) => boton(l, l)));
 }
 
+// --- Columna de proyectos: empieza cerrada y se abre con la pestaña -----------------
+function montarLateral() {
+  const pagina = document.querySelector(".pagina");
+  const lateral = $("lateral");
+  const abrir = $("abrirProyectos");
+  const cerrar = $("cerrarProyectos");
+
+  const poner = (abierto, { foco = false } = {}) => {
+    pagina.dataset.lateral = abierto ? "abierto" : "cerrado";
+    lateral.inert = !abierto;
+    abrir.setAttribute("aria-expanded", String(abierto));
+    abrir.querySelector("span").textContent = abierto ? "Ocultar mis proyectos" : "Ver todos mis proyectos";
+    if (foco) (abierto ? cerrar : abrir).focus();
+  };
+
+  abrir.addEventListener("click", () => poner(pagina.dataset.lateral !== "abierto", { foco: true }));
+  cerrar.addEventListener("click", () => poner(false, { foco: true }));
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape" && pagina.dataset.lateral === "abierto") poner(false, { foco: true });
+  });
+}
+
 async function iniciar() {
   pintarContacto();
+  montarLateral();
   try {
     todos = await leerRepos();
     pintarFiltros();

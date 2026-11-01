@@ -180,11 +180,6 @@ a {
   object-fit: cover;
   object-position: 50% 50%;
   min-height: 18rem;
-  transition: transform 0.6s ease;
-}
-
-.destacado:hover .destacado-imagen img {
-  transform: scale(1.03);
 }
 
 .destacado-texto {
@@ -360,6 +355,58 @@ a {
   z-index: 1;
 }
 
+/* --- Pestaña «Ver todos mis proyectos» ------------------------------------------------ */
+.pestana-proyectos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: min(92%, 72rem);
+  margin: 2.5rem auto 0;
+  min-height: 3rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--azul);
+  border-radius: 12px;
+  background: rgb(119 158 210 / 0.12);
+  color: var(--blanco);
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pestana-proyectos:hover {
+  background: rgb(119 158 210 / 0.25);
+}
+
+.pestana-proyectos::after {
+  content: "›";
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: rotate 0.3s;
+}
+
+.pagina[data-lateral="abierto"] .pestana-proyectos::after {
+  rotate: 90deg;
+}
+
+.cerrar-lateral {
+  display: none;
+}
+
+/* Cerrada en el móvil: la lista no ocupa sitio */
+.pagina[data-lateral="cerrado"] .lateral {
+  display: none;
+}
+
+.lateral {
+  width: min(92%, 72rem);
+  margin: 1.5rem auto 0;
+}
+
 /* --- Pie --------------------------------------------------------------------------- */
 .pie {
   margin-top: 4rem;
@@ -374,9 +421,76 @@ a {
    Derecha: el resto de proyectos, fija a la altura de la ventana y con su propio scroll. */
 @media (min-width: 1100px) {
   .pagina {
+    --ancho-lateral: clamp(24rem, 32vw, 38rem);
     display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(24rem, 32vw, 38rem);
+    grid-template-columns: minmax(0, 1fr) var(--ancho-lateral);
     align-items: start;
+    transition: grid-template-columns 0.4s ease;
+  }
+
+  /* Cerrada: la columna mide 0 y la izquierda ocupa todo el ancho */
+  .pagina[data-lateral="cerrado"] {
+    grid-template-columns: minmax(0, 1fr) 0;
+  }
+
+  .pagina[data-lateral="cerrado"] .lateral {
+    display: block;
+    visibility: hidden;
+    padding-inline: 0;
+    border: none;
+    transition: visibility 0s 0.4s;
+  }
+
+  /* Hueco a la derecha para que la pestaña no tape los destacados */
+  .pagina[data-lateral="cerrado"] .principal .contenedor {
+    padding-right: 5rem;
+  }
+
+  /* La pestaña: una etiqueta vertical pegada al borde derecho */
+  .pestana-proyectos {
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    right: 0;
+    translate: 0 -50%;
+    width: auto;
+    margin: 0;
+    padding: 1.25rem 0.7rem;
+    border-right: none;
+    border-radius: 14px 0 0 14px;
+    background: var(--caja);
+    box-shadow: -10px 0 30px rgb(0 0 0 / 0.35);
+    writing-mode: vertical-rl;
+    rotate: 180deg;
+  }
+
+  .pestana-proyectos::after {
+    content: "‹";
+    rotate: 90deg;
+  }
+
+  .pagina[data-lateral="abierto"] .pestana-proyectos {
+    display: none;
+  }
+
+  .cerrar-lateral {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 1.4rem;
+    right: 1.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--borde);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--blanco);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .cerrar-lateral:hover {
+    border-color: var(--azul);
   }
 
   /* Sin ancho máximo: la columna aprovecha todo el espacio que deja la de proyectos */
@@ -388,6 +502,9 @@ a {
   }
 
   .lateral {
+    width: auto;
+    margin: 0;
+    overflow-x: hidden;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -429,7 +546,14 @@ a {
   }
 
   .pie {
+    grid-column: 1;
     margin-top: 3rem;
+  }
+
+  .pie .contenedor {
+    width: auto;
+    margin: 0;
+    padding: 0 clamp(2rem, 3vw, 3.5rem);
   }
 }
 

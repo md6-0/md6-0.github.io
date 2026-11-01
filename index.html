@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="pagina">
+  <div class="pagina" data-lateral="cerrado">
   <div class="principal">
   <header class="cabecera">
     <div class="contenedor">
@@ -27,7 +27,7 @@
 
   <main class="contenedor">
     <section aria-labelledby="titulo-destacado">
-      <h2 id="titulo-destacado" class="antetitulo"><span class="guiones" aria-hidden="true">-------</span>Proyectos destacados</h2>
+      <h2 id="titulo-destacado" class="antetitulo"><span class="guiones" aria-hidden="true">-------</span>Mis proyectos destacados</h2>
       <article class="destacado">
         <a class="destacado-imagen" href="https://md6-0.github.io/TFG-GeoData.gl/" tabindex="-1" aria-hidden="true">
           <img src="./img/geodata.jpg" width="1400" height="691" alt="">
@@ -78,23 +78,29 @@
 
   </main>
 
-  <footer class="pie">
-    <div class="contenedor">
-      <p>Los proyectos se leen de mis repositorios públicos de GitHub cada vez que abres la página.</p>
-    </div>
-  </footer>
   </div>
 
-  <aside class="lateral" aria-label="Todos los proyectos">
+  <button type="button" class="pestana-proyectos" id="abrirProyectos" aria-expanded="false" aria-controls="lateral">
+    <span>Ver todos mis proyectos</span>
+  </button>
+
+  <aside class="lateral" id="lateral" aria-label="Todos mis proyectos" inert>
+    <button type="button" class="cerrar-lateral" id="cerrarProyectos" aria-label="Cerrar la lista de proyectos">✕</button>
     <section aria-labelledby="titulo-proyectos" class="proyectos">
       <div class="proyectos-cabecera">
-        <h2 id="titulo-proyectos" class="antetitulo"><span class="guiones" aria-hidden="true">-------</span>Todos los proyectos</h2>
+        <h2 id="titulo-proyectos" class="antetitulo"><span class="guiones" aria-hidden="true">-------</span>Todos mis proyectos</h2>
         <div class="filtros" id="filtros" role="group" aria-label="Filtrar por lenguaje"></div>
       </div>
       <p class="estado" id="estado" role="status">Cargando los repositorios de GitHub…</p>
       <ul class="rejilla" id="repos"></ul>
     </section>
   </aside>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Los proyectos se leen de mis repositorios públicos de GitHub cada vez que abres la página.</p>
+    </div>
+  </footer>
   </div>
 
   <noscript>
