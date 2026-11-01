@@ -163,6 +163,10 @@ a {
   margin-top: 1.5rem;
 }
 
+.destacado:hover {
+  border-color: var(--azul);
+}
+
 /* El segundo, con la imagen a la derecha, para que no se vean iguales */
 .destacado-invertido .destacado-imagen {
   order: 2;
@@ -174,6 +178,7 @@ a {
 }
 
 .destacado {
+  transition: border-color 0.2s;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   overflow: hidden;
@@ -320,15 +325,6 @@ a {
   overflow-wrap: anywhere;
 }
 
-.tarjeta-enlace {
-  text-decoration: none;
-}
-
-.tarjeta-enlace:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--azul);
-}
-
 .descripcion {
   color: var(--suave);
   font-size: 0.98rem;
@@ -432,6 +428,7 @@ a {
 @media (min-width: 1100px) {
   .pagina {
     --ancho-lateral: clamp(24rem, 32vw, 38rem);
+    --relleno-lateral: clamp(1.25rem, 2vw, 2rem);
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--ancho-lateral);
     align-items: start;
@@ -446,7 +443,6 @@ a {
   .pagina[data-lateral="cerrado"] .lateral {
     display: block;
     visibility: hidden;
-    padding-inline: 0;
     border: none;
     transition: visibility 0s 0.4s;
   }
@@ -466,10 +462,11 @@ a {
     width: auto;
     margin: 0;
     padding: 1.25rem 0.7rem;
-    border-right: none;
-    border-radius: 14px 0 0 14px;
+    /* Va girada 180°: lo que aquí es «izquierda» se ve a la derecha, pegado al borde */
+    border-left: none;
+    border-radius: 0 14px 14px 0;
     background: var(--caja);
-    box-shadow: -10px 0 30px rgb(0 0 0 / 0.35);
+    box-shadow: 10px 0 30px rgb(0 0 0 / 0.35);
     writing-mode: vertical-rl;
     rotate: 180deg;
   }
@@ -521,15 +518,32 @@ a {
     height: 100dvh;
     overflow-y: auto;
     overscroll-behavior: contain;
-    padding: 2rem clamp(1.25rem, 2vw, 2rem);
+    padding: 2rem var(--relleno-lateral);
     background: rgb(0 0 0 / 0.18);
     border-left: 1px solid var(--borde);
     scrollbar-width: thin;
     scrollbar-color: rgb(255 255 255 / 0.2) transparent;
   }
 
+  /* El contenido tiene siempre el ancho final: mientras la columna se abre no se
+     recoloca el texto, solo se va descubriendo. Y aparece con un fundido. */
   .lateral .proyectos {
     margin-top: 0;
+    width: calc(var(--ancho-lateral) - 2 * var(--relleno-lateral));
+  }
+
+  .lateral .proyectos,
+  .cerrar-lateral {
+    opacity: 1;
+    translate: 0 0;
+    transition: opacity 0.35s ease 0.25s, translate 0.35s ease 0.25s;
+  }
+
+  .pagina[data-lateral="cerrado"] .lateral .proyectos,
+  .pagina[data-lateral="cerrado"] .cerrar-lateral {
+    opacity: 0;
+    translate: 1.5rem 0;
+    transition: opacity 0.15s ease, translate 0.15s ease;
   }
 
   /* En la columna estrecha, el título arriba y los filtros debajo */

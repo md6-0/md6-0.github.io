@@ -142,7 +142,7 @@ function tarjeta(repo) {
   return el(
     "li",
     { class: "tarjeta" },
-    el("h3", {}, el("a", { href: r.demo ?? r.url, class: "tarjeta-enlace" }, nombreBonito(r.nombre))),
+    el("h3", {}, nombreBonito(r.nombre)),
     el("p", { class: r.descripcion ? "descripcion" : "descripcion vacia" }, r.descripcion ?? "Sin descripción."),
     el(
       "p",
