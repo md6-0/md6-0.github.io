@@ -159,8 +159,11 @@ a {
 }
 
 /* --- Destacados ---------------------------------------------------------------------- */
-.destacado + .destacado {
-  margin-top: 1.25rem;
+/* Dos columnas de destacados (una en pantallas estrechas) */
+.rejilla-destacados {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(max(19rem, calc((100% - 1.25rem) / 2)), 1fr));
+  gap: 1.25rem;
 }
 
 /* Capturas de pixel art: que no se emborronen al escalarlas */
@@ -173,20 +176,10 @@ a {
   border-color: var(--azul);
 }
 
-/* El segundo, con la imagen a la derecha, para que no se vean iguales */
-.destacado-invertido .destacado-imagen {
-  order: 2;
-}
-
-/* La captura de la app es más ancha que el hueco: que se lea la columna de la izquierda entera */
-.destacado-invertido .destacado-imagen img {
-  object-position: 0% 50%;
-}
-
 .destacado {
   transition: border-color 0.2s;
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   background: var(--caja);
   border: 1px solid var(--borde);
@@ -194,11 +187,10 @@ a {
   box-shadow: 0 25px 60px rgb(0 0 0 / 0.4);
 }
 
-/* La imagen no decide la altura de la tarjeta: la marca el texto, y la imagen
-   se recorta para rellenar su hueco */
+/* Imagen arriba, siempre en 16:9 */
 .destacado-imagen {
   position: relative;
-  min-height: 15rem;
+  aspect-ratio: 16 / 9;
 }
 
 .destacado-imagen img {
@@ -212,6 +204,7 @@ a {
 }
 
 .destacado-texto {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
@@ -582,18 +575,8 @@ a {
 
 /* --- Móvil ------------------------------------------------------------------------- */
 @media (max-width: 760px) {
-  .destacado-invertido .destacado-imagen {
-    order: 0;
-  }
-
   .destacado {
-    grid-template-columns: 1fr;
     border-radius: 22px;
-  }
-
-  .destacado-imagen {
-    min-height: 0;
-    aspect-ratio: 16 / 9;
   }
 }
 
