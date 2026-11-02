@@ -51,6 +51,7 @@ const DESCRIPCIONES = {
 
 // Demos que no son GitHub Pages: enlace y texto del botón. Tienen prioridad sobre Pages.
 const DEMOS = {
+  Aparcapp: { url: "https://play.google.com/store/apps/details?id=com.tfwstudios.aparcapp" },
   "Nonstap-Hackathon-2019": {
     url: "https://www.figma.com/file/nJoCFxkSFETEwTr20KQSDw/nonstap-UX-UI?node-id=4%3A6",
     texto: "Ver prototipo",
