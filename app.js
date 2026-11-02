@@ -164,16 +164,16 @@ function tarjeta(repo) {
     el("h3", {}, nombreBonito(r.nombre)),
     el("p", { class: r.descripcion ? "descripcion" : "descripcion vacia" }, r.descripcion ?? "Sin descripción."),
     el(
-      "p",
-      { class: "meta" },
-      r.lenguaje && el("span", { class: "lenguaje" }, el("span", { class: "punto", style: { background: COLORES[r.lenguaje] ?? "#9aa0b8" }, "aria-hidden": "true" }), r.lenguaje),
-      el("time", { datetime: r.actualizado }, fecha.format(new Date(r.actualizado))),
+      "ul",
+      { class: "etiquetas meta" },
+      r.lenguaje && el("li", { class: "lenguaje" }, el("span", { class: "punto", style: { background: COLORES[r.lenguaje] ?? "#9aa0b8" }, "aria-hidden": "true" }), r.lenguaje),
+      el("li", {}, el("time", { datetime: r.actualizado }, fecha.format(new Date(r.actualizado)))),
     ),
     el(
       "p",
       { class: "acciones" },
-      r.demo && el("a", { class: "boton boton-pequeno", href: r.demo }, r.textoDemo),
-      el("a", { class: "boton boton-pequeno boton-secundario", href: r.url }, "Código"),
+      r.demo && el("a", { class: "boton", href: r.demo }, r.textoDemo),
+      el("a", { class: "boton boton-secundario", href: r.url }, "Código"),
     ),
   );
 }
