@@ -57,6 +57,24 @@ a {
   padding: clamp(1.75rem, 5vw, 3.25rem) 0 clamp(2rem, 5vw, 3.5rem);
 }
 
+/* Foto redonda a la izquierda del nombre */
+.cabecera-fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.foto {
+  width: clamp(7rem, 16vw, 11rem);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--borde);
+  box-shadow: 0 20px 45px rgb(0 0 0 / 0.4);
+  object-fit: cover;
+}
+
 .cabecera h1 {
   font-size: clamp(3rem, 9vw, 5.5rem);
   font-style: italic;
