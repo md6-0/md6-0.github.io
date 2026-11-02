@@ -12,6 +12,7 @@ Los proyectos destacados (GeoData.gl y Mi biblioteca de videojuegos) están escr
 Todo lo configurable está al principio de `app.js`:
 
 - `CONTACTO`: enlaces de la cabecera.
+- `DEMOS`: enlace y texto del botón para demos que no están en GitHub Pages (por ejemplo, un prototipo en Figma).
 - `ORDEN`: qué proyectos van primero. Los demás, incluidos los repos nuevos, van detrás por fecha.
 - `OCULTOS`: repos que no quiero que salgan en la lista.
 - `NOMBRES` y `DESCRIPCIONES`: nombre y descripción que se muestran de cada repo. Tienen prioridad sobre los de GitHub.

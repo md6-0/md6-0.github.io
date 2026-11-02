@@ -50,6 +50,14 @@ const DESCRIPCIONES = {
   "Nonstap-Hackathon-2019": "App para crear experiencias turísticas en 3 pasos con recomendaciones basadas en IA, datos abiertos y opiniones de usuarios. Premio de la Asociación Nacional de Big Data y Analytics y accésit en «Hackea tu destino!» 2019.",
 };
 
+// Demos que no son GitHub Pages: enlace y texto del botón. Tienen prioridad sobre Pages.
+const DEMOS = {
+  "Nonstap-Hackathon-2019": {
+    url: "https://www.figma.com/file/nJoCFxkSFETEwTr20KQSDw/nonstap-UX-UI?node-id=4%3A6",
+    texto: "Ver prototipo",
+  },
+};
+
 // Colores de lenguaje (los de GitHub) para el puntito de cada tarjeta.
 const COLORES = {
   JavaScript: "#f1e05a",
@@ -138,7 +146,13 @@ function pintarContacto() {
 }
 
 function tarjeta(repo) {
-  const r = { ...repo, descripcion: DESCRIPCIONES[repo.nombre] ?? repo.descripcion };
+  const extra = DEMOS[repo.nombre];
+  const r = {
+    ...repo,
+    descripcion: DESCRIPCIONES[repo.nombre] ?? repo.descripcion,
+    demo: extra?.url ?? repo.demo,
+    textoDemo: extra?.texto ?? "Abrir la app",
+  };
   return el(
     "li",
     { class: "tarjeta" },
@@ -153,7 +167,7 @@ function tarjeta(repo) {
     el(
       "p",
       { class: "acciones" },
-      r.demo && el("a", { class: "boton boton-pequeno", href: r.demo }, "Abrir la app"),
+      r.demo && el("a", { class: "boton boton-pequeno", href: r.demo }, r.textoDemo),
       el("a", { class: "boton boton-pequeno boton-secundario", href: r.url }, "Código"),
     ),
   );
