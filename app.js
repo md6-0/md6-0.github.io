@@ -19,10 +19,10 @@ const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "vid
 // nuevos) va detrás, del más reciente al más antiguo.
 const ORDEN = [
   "The-endless-deck",
-  "hackathon2019-nonstap",
+  "Nonstap-Hackathon-2019",
   "Aparcapp",
-  "union-sistemas",
-  "TFWStudiosWeb",
+  "Union-de-sistemas-Godot-3D",
+  "TFW-Studios-web",
   "Prueba-tecnica-maquetacion-frontend",
 ];
 
@@ -31,23 +31,23 @@ const ORDEN = [
 const NOMBRES = {
   "TFG-GeoData.gl": "GeoData.gl",
   "videogames-backlog-app": "Mi biblioteca de videojuegos",
-  "union-sistemas": "Unión de sistemas · Godot 3D",
-  "TFWStudiosWeb": "TFW Studios · web",
+  "Union-de-sistemas-Godot-3D": "Unión de sistemas · Godot 3D",
+  "TFW-Studios-web": "TFW Studios · web",
   "The-endless-deck": "The Endless Deck",
   "Aparcapp": "Aparcapp",
   "Prueba-tecnica-maquetacion-frontend": "Prueba técnica de maquetación",
-  "hackathon2019-nonstap": "Nonstap · Hackathon 2019",
+  "Nonstap-Hackathon-2019": "Nonstap · Hackathon 2019",
 };
 
 const DESCRIPCIONES = {
   "TFG-GeoData.gl": "Web app para ver en un mapa datos geolocalizados desde CSV, JSON o GeoJSON, con capas 2D y 3D (deck.gl + MapLibre). Mi TFG de Ingeniería Multimedia, puesto al día en 2026.",
   "videogames-backlog-app": "App web instalable para llevar tus videojuegos: pendientes, jugando y terminados, con nota, horas y un resumen anual (Rewind). Funciona sin conexión y sin cuenta.",
-  "union-sistemas": "Prototipo 3D en primera persona con Godot 4 para aprender a unir sistemas de juego: movimiento con escalada, armas, enemigos, puertas con llave y ascensores.",
-  "TFWStudiosWeb": "Web corporativa de TFW Studios, el pequeño estudio de apps que formamos dos amigos, con su política de privacidad. HTML y CSS.",
+  "Union-de-sistemas-Godot-3D": "Prototipo 3D en primera persona con Godot 4 para aprender a unir sistemas de juego: movimiento con escalada, armas, enemigos, puertas con llave y ascensores.",
+  "TFW-Studios-web": "Web corporativa de TFW Studios, el pequeño estudio de apps que formamos dos amigos, con su política de privacidad. HTML y CSS.",
   "The-endless-deck": "Endless runner 2D con estética 1 bit hecho en Godot: cada vez que usas un botón del mando, su acción cambia al azar según tu baraja de cartas.",
   "Aparcapp": "App móvil para recordar dónde has aparcado: guarda la ubicación por GPS, busca la calle y lleva un historial. Hecha para aprender React, Ionic y Capacitor.",
   "Prueba-tecnica-maquetacion-frontend": "Maquetación en HTML y CSS de la página principal de una joyería, hecha como prueba técnica para una entrevista de trabajo.",
-  "hackathon2019-nonstap": "App para crear experiencias turísticas en 3 pasos con recomendaciones basadas en IA, datos abiertos y opiniones de usuarios. Premio de la Asociación Nacional de Big Data y Analytics y accésit en «Hackea tu destino!» 2019.",
+  "Nonstap-Hackathon-2019": "App para crear experiencias turísticas en 3 pasos con recomendaciones basadas en IA, datos abiertos y opiniones de usuarios. Premio de la Asociación Nacional de Big Data y Analytics y accésit en «Hackea tu destino!» 2019.",
 };
 
 // Colores de lenguaje (los de GitHub) para el puntito de cada tarjeta.

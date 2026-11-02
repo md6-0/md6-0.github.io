@@ -16,6 +16,6 @@ Todo lo configurable está al principio de `app.js`:
 - `OCULTOS`: repos que no quiero que salgan en la lista.
 - `NOMBRES` y `DESCRIPCIONES`: nombre y descripción que se muestran de cada repo. Tienen prioridad sobre los de GitHub.
 
-Un repo que no esté en esas listas se muestra con su nombre y la descripción del apartado **About** de GitHub (el engranaje junto a «About»). El lenguaje sale siempre de GitHub. Para que un repo enlace a su demo, basta con activar GitHub Pages en él.
+Las listas usan el nombre del repo: **si renombras un repo en GitHub, cámbialo también aquí**, o perderá su posición, su nombre y su descripción. Un repo que no esté en esas listas se muestra con su nombre y la descripción del apartado **About** de GitHub (el engranaje junto a «About»). El lenguaje sale siempre de GitHub. Para que un repo enlace a su demo, basta con activar GitHub Pages en él.
 
 Sin dependencias ni build: HTML, CSS y JavaScript sueltos. Tipografía Barlow bajo la SIL Open Font License (`fuentes/OFL.txt`).
