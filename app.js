@@ -207,18 +207,17 @@ function montarLateral() {
   const pagina = document.querySelector(".pagina");
   const lateral = $("lateral");
   const abrir = $("abrirProyectos");
-  const cerrar = $("cerrarProyectos");
 
+  // La misma pestaña abre y cierra el panel.
   const poner = (abierto, { foco = false } = {}) => {
     pagina.dataset.lateral = abierto ? "abierto" : "cerrado";
     lateral.inert = !abierto;
     abrir.setAttribute("aria-expanded", String(abierto));
     abrir.querySelector("span").textContent = abierto ? "Ocultar mis proyectos" : "Ver todos mis proyectos";
-    if (foco) (abierto ? cerrar : abrir).focus();
+    if (foco) abrir.focus();
   };
 
   abrir.addEventListener("click", () => poner(pagina.dataset.lateral !== "abierto", { foco: true }));
-  cerrar.addEventListener("click", () => poner(false, { foco: true }));
   document.addEventListener("keydown", (ev) => {
     if (ev.key === "Escape" && pagina.dataset.lateral === "abierto") poner(false, { foco: true });
   });
