@@ -163,6 +163,11 @@ a {
   margin-top: 1.5rem;
 }
 
+/* Capturas de pixel art: que no se emborronen al escalarlas */
+.destacado-imagen img.pixelado {
+  image-rendering: pixelated;
+}
+
 .destacado:hover {
   border-color: var(--azul);
 }

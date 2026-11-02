@@ -13,12 +13,11 @@ const CONTACTO = [
 ];
 
 // Repos que no se listan: este mismo sitio, el README del perfil y los destacados (ya están arriba).
-const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "videogames-backlog-app"].map((n) => n.toLowerCase()));
+const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "videogames-backlog-app", "The-endless-deck"].map((n) => n.toLowerCase()));
 
 // Orden en la página: primero estos, en este orden; el resto (también los repos
 // nuevos) va detrás, del más reciente al más antiguo.
 const ORDEN = [
-  "The-endless-deck",
   "Nonstap-Hackathon-2019",
   "Aparcapp",
   "Union-de-sistemas-Godot-3D",
@@ -93,6 +92,12 @@ function el(etiqueta, atributos = {}, ...hijos) {
     if (k === "class") nodo.className = v;
     else if (k === "style") Object.assign(nodo.style, v);
     else if (k.startsWith("on")) nodo.addEventListener(k.slice(2), v);
+    else if (k === "href" && !String(v).startsWith("mailto:")) {
+      // Todos los enlaces a proyectos y perfiles se abren en una pestaña nueva
+      nodo.setAttribute("href", v);
+      nodo.setAttribute("target", "_blank");
+      nodo.setAttribute("rel", "noopener");
+    }
     else nodo.setAttribute(k, v);
   }
   // Siempre como texto: las descripciones vienen de fuera y no se meten como HTML.
@@ -151,7 +156,7 @@ function tarjeta(repo) {
     ...repo,
     descripcion: DESCRIPCIONES[repo.nombre] ?? repo.descripcion,
     demo: extra?.url ?? repo.demo,
-    textoDemo: extra?.texto ?? "Abrir la app",
+    textoDemo: extra?.texto ?? "Abrir",
   };
   return el(
     "li",
