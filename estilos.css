@@ -177,10 +177,10 @@ a {
 }
 
 /* --- Destacados ---------------------------------------------------------------------- */
-/* Dos columnas de destacados (una en pantallas estrechas) */
+/* Hasta cuatro columnas de destacados: las que no caben pasan a la fila siguiente */
 .rejilla-destacados {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(19rem, calc((100% - 1.25rem) / 2)), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(max(17rem, calc((100% - 3 * 1.25rem) / 4)), 1fr));
   gap: 1.25rem;
 }
 
