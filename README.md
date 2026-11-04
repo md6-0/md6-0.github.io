@@ -6,7 +6,7 @@ Muestra cuatro proyectos destacados y, en una columna aparte, la lista de todos 
 
 ## Cambiar cosas
 
-Los proyectos destacados (GeoData.gl, Mi biblioteca de videojuegos, The Endless Deck y Alineador pachangas) están escritos a mano en `index.html`, con sus capturas en `img/`.
+Los proyectos destacados (GeoData.gl, Mi biblioteca de videojuegos, The Endless Deck y Mi pachanga) están escritos a mano en `index.html`, con sus capturas en `img/`.
 
 
 Todo lo configurable está al principio de `app.js`:

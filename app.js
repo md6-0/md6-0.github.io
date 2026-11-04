@@ -33,7 +33,7 @@ const NOMBRES = {
   "Union-de-sistemas-Godot-3D": "Unión de sistemas · Godot 3D",
   "TFW-Studios-web": "TFW Studios · web",
   "The-endless-deck": "The Endless Deck",
-  "alineaciones-pachangas": "Alineador pachangas",
+  "alineaciones-pachangas": "Mi pachanga",
   "Aparcapp": "Aparcapp",
   "Prueba-tecnica-maquetacion-frontend": "Prueba técnica de maquetación",
   "Nonstap-Hackathon-2019": "Nonstap · Hackathon 2019",
