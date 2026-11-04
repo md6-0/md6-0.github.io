@@ -195,6 +195,7 @@ a {
 }
 
 .destacado {
+  container-type: inline-size; /* el título se ajusta al ancho de la tarjeta */
   transition: border-color 0.2s;
   display: flex;
   flex-direction: column;
@@ -231,7 +232,8 @@ a {
 }
 
 .destacado-texto h3 {
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  /* Según el ancho de la tarjeta: más pequeño cuando las tarjetas son estrechas */
+  font-size: clamp(1.35rem, 6.5cqi, 2rem);
   font-style: italic;
   font-weight: 700;
   line-height: 1.1;
