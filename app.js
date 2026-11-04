@@ -13,7 +13,7 @@ const CONTACTO = [
 ];
 
 // Repos que no se listan: este mismo sitio, el README del perfil y los destacados (ya están arriba).
-const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "videogames-backlog-app", "The-endless-deck"].map((n) => n.toLowerCase()));
+const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "videogames-backlog-app", "The-endless-deck", "alineaciones-pachangas"].map((n) => n.toLowerCase()));
 
 // Orden en la página: primero estos, en este orden; el resto (también los repos
 // nuevos) va detrás, del más reciente al más antiguo.
@@ -33,6 +33,7 @@ const NOMBRES = {
   "Union-de-sistemas-Godot-3D": "Unión de sistemas · Godot 3D",
   "TFW-Studios-web": "TFW Studios · web",
   "The-endless-deck": "The Endless Deck",
+  "alineaciones-pachangas": "Alineador pachangas",
   "Aparcapp": "Aparcapp",
   "Prueba-tecnica-maquetacion-frontend": "Prueba técnica de maquetación",
   "Nonstap-Hackathon-2019": "Nonstap · Hackathon 2019",
