@@ -2,11 +2,11 @@
 
 Mi página personal: https://md6-0.github.io/
 
-Muestra tres proyectos destacados y, en una columna aparte, la lista de todos mis repositorios públicos, que se lee de la API de GitHub al abrir la página. Si creo un repo público nuevo, aparece solo. Los que tienen GitHub Pages llevan un botón «Abrir».
+Muestra cuatro proyectos destacados y, en una columna aparte, la lista de todos mis repositorios públicos, que se lee de la API de GitHub al abrir la página. Si creo un repo público nuevo, aparece solo. Los que tienen GitHub Pages llevan un botón «Abrir».
 
 ## Cambiar cosas
 
-Los proyectos destacados (GeoData.gl, Mi biblioteca de videojuegos y The Endless Deck) están escritos a mano en `index.html`, con sus capturas en `img/`.
+Los proyectos destacados (GeoData.gl, Mi biblioteca de videojuegos, The Endless Deck y Alineador pachangas) están escritos a mano en `index.html`, con sus capturas en `img/`.
 
 
 Todo lo configurable está al principio de `app.js`:
