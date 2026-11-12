@@ -13,7 +13,7 @@ const CONTACTO = [
 ];
 
 // Repos que no se listan: este mismo sitio, el README del perfil y los destacados (ya están arriba).
-const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "videogames-backlog-app", "The-endless-deck", "alineaciones-pachangas"].map((n) => n.toLowerCase()));
+const OCULTOS = new Set([`${USUARIO}.github.io`, USUARIO, "TFG-GeoData.gl", "videogames-backlog-app", "The-endless-deck", "alineaciones-pachangas", "TFM-mision-lucentum"].map((n) => n.toLowerCase()));
 
 // Orden en la página: primero estos, en este orden; el resto (también los repos
 // nuevos) va detrás, del más reciente al más antiguo.
@@ -28,6 +28,7 @@ const ORDEN = [
 // Nombre y descripción que se muestran en la página. Tienen prioridad sobre los de
 // GitHub; un repo que no esté aquí se muestra con su nombre y su descripción de GitHub.
 const NOMBRES = {
+  "TFM-mision-lucentum": "Misión Lucentum",
   "TFG-GeoData.gl": "GeoData.gl",
   "videogames-backlog-app": "Mi biblioteca de videojuegos",
   "Union-de-sistemas-Godot-3D": "Unión de sistemas · Godot 3D",
@@ -40,6 +41,7 @@ const NOMBRES = {
 };
 
 const DESCRIPCIONES = {
+  "TFM-mision-lucentum": "Juego para aprender a programar en TypeScript moviendo un rover por Marte, con 27 misiones y corrección inmediata. Base de mi TFM del Máster de Profesorado.",
   "TFG-GeoData.gl": "Web app para ver en un mapa datos geolocalizados desde CSV, JSON o GeoJSON, con capas 2D y 3D (deck.gl + MapLibre). Mi TFG de Ingeniería Multimedia, puesto al día en 2026.",
   "videogames-backlog-app": "App web instalable para llevar tus videojuegos: pendientes, jugando y terminados, con nota, horas y un resumen anual (Rewind). Funciona sin conexión y sin cuenta.",
   "Union-de-sistemas-Godot-3D": "Prototipo 3D en primera persona con Godot 4 para aprender a unir sistemas de juego: movimiento con escalada, armas, enemigos, puertas con llave y ascensores.",
